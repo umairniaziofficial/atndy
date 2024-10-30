@@ -1,7 +1,7 @@
 import React from "react";
 import CustomButton from "./shared/CustomButton";
 import Image from "next/image";
-import runningGif from "../assets/gif/Running.gif"; 
+import runningGif from "../assets/gif/Running.gif";
 
 const Banner = () => {
   return (
@@ -18,13 +18,13 @@ const Banner = () => {
             <CustomButton 
               title="Calculate" 
               borders={true} 
-              extra_style="border-rich-black hover:text-red-pantone focus:ring-2 focus:ring-red-pantone focus:outline-none" 
+              extra_style="border-rich-black hover:text-white hover:bg-rich-black transition-colors duration-300 ease-in-out" 
               aria-label="Calculate your absences"
             />
             <CustomButton
               title="Learn More"
               borders={true}
-              extra_style="bg-red-pantone text-white border-gray-600 hover:brightness-90 focus:ring-2 focus:ring-red-pantone focus:outline-none"
+              extra_style="text-black border-red-pantone hover:text-white hover:bg-red-pantone transition-colors duration-300 ease-in-out"
               aria-label="Learn more about absence tracking"
             />
           </div>
