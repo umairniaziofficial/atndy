@@ -35,7 +35,7 @@ const steps = [
 
 const InfoSection = () => {
   return (
-    <div className="w-full px-4 overflow-hidden py-16 bg-baby-powder">
+    <div className="w-full px-4 overflow-hidden bg-baby-powder">
       <div className="w-full max-w-7xl mx-auto">
         <h1 className="text-center font-extrabold text-3xl text-rich-black tracking-widest mb-16">
           How it Works

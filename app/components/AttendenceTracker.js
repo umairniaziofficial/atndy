@@ -134,7 +134,7 @@ const AttendanceTracker = () => {
           />
         </div>
 
-        <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+        <div className="md:w-1/2 mt-10 md:pl-20 md:mt-0 flex justify-center">
           <AttendanceResults data={formData} />
         </div>
       </div>
