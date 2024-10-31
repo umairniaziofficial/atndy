@@ -6,7 +6,7 @@ import CustomButton from "./shared/CustomButton";
 
 const Navbar = () => {
   return (
-    <div className={`w-full px-4 `}>
+    <div className={`w-full px-4`}>
       <div className="flex items-center justify-between max-w-7xl mx-auto py-4">
         <div>
           <Image
