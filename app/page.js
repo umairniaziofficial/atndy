@@ -6,6 +6,7 @@ import InfoSection from './components/InfoSection';
 import Mission from './components/Mission';
 import Collabration from './components/Collabration';
 import CompaniesDiv from './components/CompaniesDiv';
+import Footer from './components/Footer';
 
 const Page = () => {
   return (
@@ -17,6 +18,7 @@ const Page = () => {
       <Mission/>
       <CompaniesDiv/>
       <Collabration/>
+      <Footer/>
      </div>
   );
 }

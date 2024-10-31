@@ -6,7 +6,7 @@ import CustomButton from "./shared/CustomButton";
 const Collabration = () => {
   return (
     <div className="w-full px-4 overflow-hidden bg-baby-powder ">
-      <div className="w-full flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto gap-8 md:gap-12">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto gap-8 md:gap-12 py-16 md:py-24 md:pb-48">
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
           <h1 className="text-3xl font-extrabold text-rich-black mb-4">
             Collaboration
