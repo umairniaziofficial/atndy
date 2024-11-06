@@ -68,36 +68,37 @@ const AttendanceResults = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left text-gray-100 rounded-xl border px-6 py-6 bg-gray-900">
+    <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start md:text-left text-gray-100 rounded-xl border px-6 py-6 bg-gray-900">
       <h1 className="font-extrabold text-3xl text-white">
         Attendance Calculator
       </h1>
 
       {Object.keys(data).length > 0 && (
-        <div className="flex flex-col gap-2 w-full h-full">
-          <div className="flex flex-col md:flex-row gap-4 w-full text-gray-200">
+        <div className="flex flex-col gap-6 w-full h-full">
+          <div className="flex flex-col md:flex-col gap-4 w-full text-gray-200">
             <div className="font-extrabold w-full">
               <span className="font-semibold">
                 {data.courseName} at {data.universityName}
               </span>
             </div>
+            <div className="flex flex-col md:flex-row gap-4 w-full text-xs text-gray-400">
+              <div>
+                <span className="font-semibold">From:</span>{" "}
+                <span>{data.semesterStartDate}</span>
+              </div>
+              <div>
+                <span className="font-semibold">End:</span>{" "}
+                <span>{data.semesterEndDate}</span>
+              </div>
+              <div>
+                <span className="font-semibold">Make-up Classes:</span>{" "}
+                <span>{data.unattended || 0}</span>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 w-full text-xs text-gray-400">
-            <div>
-              <span className="font-semibold">From:</span>{" "}
-              <span>{data.semesterStartDate}</span>
-            </div>
-            <div>
-              <span className="font-semibold">End:</span>{" "}
-              <span>{data.semesterEndDate}</span>
-            </div>
-            <div>
-              <span className="font-semibold">Make-up Classes:</span>{" "}
-              <span>{data.unattended || 0}</span>
-            </div>
-          </div>
+
           <div className="flex w-full h-[60%] items-center justify-center flex-col gap-4">
-            <div className="text-white font-extrabold flex items-end gap-2">
+            <div className="text-white font-extrabold flex flex-col items-center gap-2">
               <div className="text-8xl">{requirements.remainingAbsences}</div>
               <div className="text-xs">Remaining Absences</div>
             </div>
@@ -109,6 +110,7 @@ const AttendanceResults = ({ data }) => {
               Current Attendance: {requirements.currentAttendancePercentage}%
             </div>
           </div>
+
           <div className="flex flex-col gap-4">
             <h1 className="text-sm text-gray-200 font-semibold tracking-wider">
               Course Details
