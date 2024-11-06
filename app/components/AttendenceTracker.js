@@ -18,6 +18,7 @@ const AttendanceTracker = () => {
     semesterStartDate: "",
     semesterEndDate: "",
     universityName: "",
+    studentAbsences: "0", // New field for tracking student absences
   });
   const [show, setShow] = useState(false);
 
@@ -36,7 +37,6 @@ const AttendanceTracker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     
     const form = e.target;
     if (form.checkValidity()) {
@@ -49,7 +49,7 @@ const AttendanceTracker = () => {
   return (
     <div className="w-full px-4 overflow-hidden" id="calculate">
       <div className="w-full flex flex-col md:flex-row justify-between max-w-7xl mx-auto py-16 md:py-24 md:gap-14 transition-all duration-150 ease-in-out">
-          <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left py-6">
+        <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left py-6">
           <h1 className="font-extrabold text-3xl text-red-pantone">
             Attendance Calculator
           </h1>
@@ -142,6 +142,15 @@ const AttendanceTracker = () => {
               placeholder="Number of classes not taken by the teacher (default: 0)"
             />
 
+            <InputField
+              type="number"
+              name="studentAbsences"
+              value={formData.studentAbsences}
+              onChange={handleChange}
+              placeholder="Number of classes you missed (default: 0)"
+              min="0"
+            />
+
             <CustomButton
               title="Calculate"
               borders={true}
@@ -152,7 +161,7 @@ const AttendanceTracker = () => {
         </div>
 
         {show ? (
-            <AttendanceResults data={formData} showResult={show} />
+          <AttendanceResults data={formData} showResult={show} />
         ) : (
           <div className="hidden w-1/2 mx-auto md:flex md:justify-end">
             <Image
