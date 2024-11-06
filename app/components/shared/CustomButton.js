@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CustomButton = ({ title, borders, extra_style, ButtonAction }) => {
+const CustomButton = ({ title, extra_style, ButtonAction }) => {
   return (
     <button 
       onClick={ButtonAction}

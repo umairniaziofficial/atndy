@@ -14,17 +14,17 @@ const Banner = () => {
           <p className="text-gray-400 text-sm md:text-base pb-4">
             Keep track of your semester absences and manage your absence requests.
           </p>
-          <div className="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-start">
+          <div className="flex flex-wrap gap-4  md:gap-6 justify-center md:justify-start">
             <CustomButton 
               title="Calculate" 
               borders={true} 
-              extra_style="border-rich-black hover:text-white hover:bg-rich-black transition-colors duration-300 ease-in-out" 
+              extra_style="!font-normal !text-base" 
               aria-label="Calculate your absences"
             />
             <CustomButton
               title="Learn More"
               borders={true}
-              extra_style="text-black border-red-pantone hover:text-white hover:bg-red-pantone transition-colors duration-300 ease-in-out"
+              extra_style="!font-normal !text-base"
               aria-label="Learn more about absence tracking"
             />
           </div>

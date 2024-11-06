@@ -48,8 +48,8 @@ const AttendanceTracker = () => {
 
   return (
     <div className="w-full px-4 overflow-hidden" id="calculate">
-      <div className="w-full flex flex-col md:flex-row justify-between max-w-7xl mx-auto py-16 md:py-24 md:gap-14">
-        <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left">
+      <div className="w-full flex flex-col md:flex-row justify-between max-w-7xl mx-auto py-16 md:py-24 md:gap-14 transition-all duration-150 ease-in-out">
+          <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left py-6">
           <h1 className="font-extrabold text-3xl text-red-pantone">
             Attendance Calculator
           </h1>
@@ -154,7 +154,7 @@ const AttendanceTracker = () => {
         {show ? (
             <AttendanceResults data={formData} showResult={show} />
         ) : (
-          <div className="hidden md:block">
+          <div className="hidden w-1/2 mx-auto md:flex md:justify-end">
             <Image
               src={SearchingImage}
               width={500}
