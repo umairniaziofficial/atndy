@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import CustomButton from "./shared/CustomButton";
 
-
 const Navbar = () => {
   return (
     <div className={`w-full px-4`}>
@@ -16,11 +15,15 @@ const Navbar = () => {
             className="cursor-pointer"
           />
         </div>
-       <div className="flex text-sm items-center gap-6  font-normal text-black">
-          <div>Calculate</div>
+        <div className="flex text-sm items-center gap-6  font-normal text-black ">
+          <a href="#calculate" className="text-sm text-rich-black cursor-pointer  hover:scale-105 hover:text-red-pantone transition duration-150 ease-in-out">
+             Calculate
+          </a>
           <div className=" border-r border-gray-200 h-8"></div>
-          <CustomButton title={"Save Memory"} extra_style={"text-red-pantone "}/>
-       </div>
+          <div className="text-sm text-red-600 cursor-pointer  hover:scale-105 hover:text-rich-black transition duration-150 ease-in-out">
+            Save Memory
+          </div>
+        </div>
       </div>
     </div>
   );
