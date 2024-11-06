@@ -20,9 +20,9 @@ Follow these instructions to set up the project locally.
 ### Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/umairniaziofficial/-semester-absence-tracker.git
+   git clone https://github.com/umairniaziofficial/atndy.git
 
-   cd semester-absence-tracker
+   cd atndy
 2. Install Dependencies:
    ```bash
    npm install
