@@ -18,7 +18,7 @@ const AttendanceTracker = () => {
     semesterStartDate: "",
     semesterEndDate: "",
     universityName: "",
-    studentAbsences: "0", // New field for tracking student absences
+    studentAbsences: "0",
   });
   const [show, setShow] = useState(false);
 
@@ -49,7 +49,7 @@ const AttendanceTracker = () => {
   return (
     <div className="w-full px-4 overflow-hidden" id="calculate">
       <div className="w-full flex flex-col md:flex-row justify-between max-w-7xl mx-auto py-16 md:py-24 md:gap-14 transition-all duration-150 ease-in-out">
-        <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start text-center md:text-left py-6">
+        <div className="flex flex-col gap-5 md:w-1/2 items-center md:items-start md:text-left py-6">
           <h1 className="font-extrabold text-3xl text-red-pantone">
             Attendance Calculator
           </h1>
@@ -95,8 +95,7 @@ const AttendanceTracker = () => {
                   formData.courseType === "lab"
                     ? [{ label: "1 Credit Hour", value: "1" }]
                     : [
-                        { label: "2 Credit Hours", value: "2" },
-                        { label: "3 Credit Hours", value: "3" },
+                        { label: "2/3 Credit Hours", value: "2" },
                       ]
                 }
                 required={true}
@@ -121,18 +120,6 @@ const AttendanceTracker = () => {
                 required={true}
               />
             </div>
-
-            <SelectField
-              label="Class Duration"
-              name="classTime"
-              value={formData.classTime}
-              onChange={handleChange}
-              options={[
-                { label: "Less than 1 hour (e.g., 50 mins)", value: "50" },
-                { label: "More than 1 hour (e.g., 1 hour 20 min)", value: "80" },
-              ]}
-              required={true}
-            />
 
             <InputField
               type="number"

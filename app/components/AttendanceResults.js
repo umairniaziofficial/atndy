@@ -8,6 +8,7 @@ const calculateWorkingDays = (startDate, endDate) => {
   const current = new Date(start);
   while (current <= end) {
     const dayOfWeek = current.getDay();
+
     if (dayOfWeek !== 0 && dayOfWeek !== 6) {
       workingDays++;
     }
@@ -17,7 +18,7 @@ const calculateWorkingDays = (startDate, endDate) => {
 };
 
 const calculateLabDetails = (workingDays, unattended) => {
-  const regularClasses = 8;
+  const regularClasses = Math.ceil(workingDays / 7);
   const totalClassesWithMakeup = regularClasses + (parseInt(unattended) || 0);
   const hoursPerSession = 3;
   const totalHours = totalClassesWithMakeup * hoursPerSession;
@@ -49,15 +50,41 @@ const calculateAttendanceRequirements = (totalClasses, studentAbsences) => {
   };
 };
 
+const calculateTheoryDetails = (workingDays, creditHours, unattended) => {
+  const classesPerWeek = creditHours;
+  const totalClasses = classesPerWeek * Math.ceil(workingDays / 7);
+  const totalClassesWithMakeup = totalClasses + (parseInt(unattended) || 0);
+  const hoursPerSession = 1;
+  const totalHours = totalClassesWithMakeup * hoursPerSession;
+
+  return {
+    regularClasses: totalClasses,
+    totalClassesWithMakeup,
+    classesPerWeek,
+    totalHours,
+    hoursPerSession,
+  };
+};
+
 const AttendanceResults = ({ data }) => {
   const workingDays =
     data.semesterStartDate && data.semesterEndDate
       ? calculateWorkingDays(data.semesterStartDate, data.semesterEndDate)
       : 0;
 
-  const labDetails = calculateLabDetails(workingDays, data.unattended);
+  let courseDetails;
+  if (data.courseType === "lab") {
+    courseDetails = calculateLabDetails(workingDays, data.unattended);
+  } else {
+    courseDetails = calculateTheoryDetails(
+      workingDays,
+      data.creditHours,
+      data.unattended
+    );
+  }
+
   const requirements = calculateAttendanceRequirements(
-    labDetails.totalClassesWithMakeup,
+    courseDetails.totalClassesWithMakeup,
     data.studentAbsences
   );
 
@@ -131,13 +158,13 @@ const AttendanceResults = ({ data }) => {
                   <li>
                     • Classes per week:{" "}
                     <span className="font-bold">
-                      {labDetails.classesPerWeek}
+                      {courseDetails.classesPerWeek}
                     </span>
                   </li>
                   <li>
                     • Regular classes:{" "}
                     <span className="font-bold">
-                      {labDetails.regularClasses}
+                      {courseDetails.regularClasses}
                     </span>
                   </li>
                   <li>
@@ -146,19 +173,21 @@ const AttendanceResults = ({ data }) => {
                   </li>
                   <li>
                     • Total classes (including make-up):{" "}
-                    <span className="font-bold">
-                      {labDetails.totalClassesWithMakeup}
+                    <span className="font-bold text-yellow-500">
+                      {courseDetails.totalClassesWithMakeup}
                     </span>
                   </li>
                   <li>
                     • Hours per session:{" "}
                     <span className="font-bold">
-                      {labDetails.hoursPerSession}
+                      {courseDetails.hoursPerSession}
                     </span>
                   </li>
                   <li>
                     • Total hours:{" "}
-                    <span className="font-bold">{labDetails.totalHours}</span>
+                    <span className="font-bold">
+                      {courseDetails.totalHours}
+                    </span>
                   </li>
                 </ul>
               </div>
