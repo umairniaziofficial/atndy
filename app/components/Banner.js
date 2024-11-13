@@ -15,18 +15,22 @@ const Banner = () => {
             Keep track of your semester absences and manage your absence requests.
           </p>
           <div className="flex flex-wrap gap-4  md:gap-6 justify-center md:justify-start">
-            <CustomButton 
-              title="Calculate" 
-              borders={true} 
-              extra_style="!font-normal !text-base" 
-              aria-label="Calculate your absences"
-            />
-            <CustomButton
-              title="Learn More"
-              borders={true}
-              extra_style="!font-normal !text-base"
-              aria-label="Learn more about absence tracking"
-            />
+            <a target="_blank" href="#calculate">
+              <CustomButton 
+                title="Calculate" 
+                borders={true} 
+                extra_style="!font-normal !text-base" 
+                aria-label="Calculate your absences"
+              />
+            </a>
+            <a target="_blank" href="https://github.com/umairniaziofficial/atndy.git">
+              <CustomButton
+                title="Learn More"
+                borders={true}
+                extra_style="!font-normal !text-base"
+                aria-label="Learn more about absence tracking"
+              />
+            </a>
           </div>
         </div>
         <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end overflow-hidden">
